@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-//inportamos la el paquete de conexion creado por nosotros
+//utilizamos el paquete de conexion que hemos utilizado
 const connectDb = require("./src/helpers/db");
 
 const PORT = process.env.PORT || 8000;
