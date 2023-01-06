@@ -7,7 +7,6 @@ const getAll = () => {
       throw error;
     } else {
       plazas = results;
-      console.log("Las plazas son: ", plazas);
     }
   });
 };

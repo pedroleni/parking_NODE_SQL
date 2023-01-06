@@ -4,6 +4,8 @@ const cors = require("cors");
 //utilizamos el paquete de conexion que hemos utilizado
 const connectDb = require("./src/helpers/db");
 
+const imprimir = require("./src/API/parking/parking.controller");
+
 const PORT = process.env.PORT || 8000;
 const app = express();
 
