@@ -3,8 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 //utilizamos el paquete de conexion que hemos utilizado
 const connectDb = require("./src/helpers/db");
-
-const imprimir = require("./src/API/parking/parking.controller");
+const ParkingRoutes = require("./src/API/parking/parking.routes");
 
 const PORT = process.env.PORT || 8000;
 const app = express();
@@ -30,6 +29,9 @@ app.use((_req, res, next) => {
 app.use(express.json({ limit: "1mb" }));
 // urlEncoded
 app.use(express.urlencoded({ limit: "1mb", extended: true }));
+app.use(bodyParser.json());
+
+app.use("/api/v1/parking", ParkingRoutes);
 
 // Error handler
 app.use((error, _req, res, _next) => {

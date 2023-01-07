@@ -1,8 +1,81 @@
-const getAll = require("../../helpers/data");
-const plazas = getAll();
+const connectDb = require("../../helpers/db");
+const { setError } = require("../../helpers/utils");
 
-const imprimir = () => {
-  console.log(plazas);
+let plazas;
+
+const init = () => {
+  connectDb.query("SELECT * FROM parking", (error, results, fields) => {
+    if (error) {
+      throw error;
+    } else {
+      plazas = results;
+    }
+  });
 };
 
-module.exports = imprimir;
+init();
+//--------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------
+const getAllPlazas = async (req, res, next) => {
+  res.type("application/json");
+  res.json(plazas);
+};
+
+//--------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------
+
+const getById = async (req, res, next) => {
+  const { id } = req.params;
+  const plaza = plazas.find((plaza) => plaza.id == id);
+  if (!plaza) return next(setError(404, "Plaza no encontrada"));
+  res.type("application/json");
+  res.json(plaza);
+};
+
+//--------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------
+
+const deleteById = async (req, res) => {
+  const { id } = req.params;
+  const plaza = plazas.filter((plaza) => plaza.id !== id);
+  res.type("application/json");
+  res.json(plaza);
+};
+
+//--------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------
+const updateById = async (req, res) => {
+  const { id } = req.params;
+  let plaza = req.body;
+  connectDb.query(
+    "UPDATE plazas SET ocupadas=" + plaza.ocupada + ` WHERE id='` + id + `'`,
+    (error, results, fields) => {
+      if (error) {
+        throw error;
+      } else {
+        plaza = results;
+        init();
+      }
+    }
+  );
+  res.type("application/json");
+  res.json(plaza);
+};
+
+//--------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------
+const desocuparById = async (req, res) => {
+  const { id } = req.params;
+  const plaza = plazas.find((plaza) => plaza.id == id);
+  plaza.ocupada = false;
+  res.type("application/json");
+  res.json(plaza);
+};
+
+module.exports = {
+  getAllPlazas,
+  getById,
+  deleteById,
+  updateById,
+  desocuparById,
+};
