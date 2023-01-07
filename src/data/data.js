@@ -12,5 +12,4 @@ const getAll = async () => {
 
   return plazas;
 };
-
 module.exports = getAll;
