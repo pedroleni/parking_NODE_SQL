@@ -7,7 +7,6 @@ body {
 
 #main_container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100vw;
@@ -35,5 +34,33 @@ body {
 }
 
 .imgCoche {
-  width: 100px;
+  width: 140px;
+  height: 140px;
+}
+
+.imgFree {
+  width: 140px;
+  height: 140px;
+}
+
+button {
+  width: 250px;
+  height: 80px;
+}
+
+.container_button {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+}
+
+.parking {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
