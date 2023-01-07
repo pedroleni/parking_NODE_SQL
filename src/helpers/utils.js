@@ -1,3 +1,4 @@
+//  ----- Manejador de errores  -------
 const setError = (code, message) => {
   const error = new Error();
   error.code = error;
