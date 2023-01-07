@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-//utilizamos el paquete de conexion que hemos utilizado
 const connectDb = require("./src/helpers/db");
 const ParkingRoutes = require("./src/API/parking/parking.routes");
 
@@ -13,7 +12,6 @@ app.use(
     origin: (_origin, callback) => {
       callback(null, true);
     },
-
     credentials: true,
   })
 );
