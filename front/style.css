@@ -29,4 +29,11 @@ body {
   border: solid 2px black;
   width: 140px;
   height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgCoche {
+  width: 100px;
 }

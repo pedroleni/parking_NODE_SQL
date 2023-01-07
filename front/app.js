@@ -18,10 +18,11 @@ const clear = () => {
 };
 
 const plaza = () => {
-  limpiar();
+  clear();
   fetch("http://localhost:8000/api/v1/parking/plazas")
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       data.map((plaza) => {
         const plazaActual = document.getElementById("plaza" + plaza.id);
         const car = document.createElement("img");
