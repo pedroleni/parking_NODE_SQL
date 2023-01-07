@@ -1,0 +1,32 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#main_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+#container_parking {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 800px;
+  height: 650px;
+  border: solid 2px black;
+  gap: 0.5rem;
+}
+
+.plaza {
+  border: solid 2px black;
+  width: 140px;
+  height: 140px;
+}
