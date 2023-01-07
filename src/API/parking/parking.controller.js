@@ -71,6 +71,8 @@ const desocuparById = async (req, res) => {
   res.type("application/json");
   res.json(plaza);
 };
+//--------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------
 
 module.exports = {
   getAllPlazas,
