@@ -27,6 +27,9 @@ formulario.addEventListener("submit", function (event) {
   })
     .then((res) => res.json())
     .then((data) => {
+      alert(
+        "Incluido con exito los datos introducidos, si pasa el raton encima de la imafen podra consultarlos"
+      );
       console.log("modificado por formulario", data);
       if (plazaActual.hasChildNodes()) {
         plazaActual.innerHTML = "";
