@@ -4,14 +4,51 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script lenguage="javascript" src="app.js"></script>
+    <script lenguage="javascript" src="app.js" defer></script>
     <link rel="stylesheet" href="style.css" />
 
     <title>Feedback 5</title>
   </head>
   <body>
     <div id="main_container">
-      <div class="container_text"></div>
+      <div class="container_text">
+        <h3>
+          Rellene los campos en la plaza quiera hacer la modificacion de datos
+        </h3>
+        <form id="formulario">
+          <label for="marca">Marca</label>
+          <input type="text" id="marca" name="marca" required />
+          <label for="modelo">Modelo</label>
+          <input type="text" id="modelo" name="modelo" required />
+          <label for="matricula">Matricula</label>
+          <input type="text" id="matricula" name="matricula" required />
+
+          <select name="ocupadas" id="ocupadas" required>
+            <option value="Plaza">Plazas</option>
+            <option id="n1" value="1">1</option>
+            <option id="n2" value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <input id="btnIn" type="submit" value="checkIn" />
+          </select>
+        </form>
+      </div>
       <div class="parking">
         <div id="container_parking">
           <div

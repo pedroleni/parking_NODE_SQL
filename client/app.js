@@ -1,3 +1,46 @@
+const formulario = document.getElementById("formulario");
+console.log(formulario);
+formulario.addEventListener("submit", function (event) {
+  event.preventDefault(); // Evita que el formulario se envíe de manera tradicional
+  const marca = document.getElementById("marca").value;
+  const modelo = document.getElementById("modelo").value;
+  const matricula2 = document.getElementById("matricula").value.toString();
+  console.log(matricula2, "matricula");
+  const idPlaza = document.getElementById("ocupadas").value;
+  const plazaActual = document.getElementById("plaza" + idPlaza);
+  const Edit = {
+    id: idPlaza,
+    name: "plaza" + idPlaza,
+    matricula: matricula2,
+    ocupada: true,
+  };
+  const formData = new FormData();
+  formData.append("json", JSON.stringify(Edit));
+  fetch("http://localhost:8000/api/v1/parking/plazas/" + idPlaza, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(Edit),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("modificado por formulario", data);
+      if (plazaActual.hasChildNodes()) {
+        plazaActual.innerHTML = "";
+        const car = document.createElement("img");
+        car.src = "./img/coche.jpg";
+        car.className = "imgCoche";
+        plazaActual.appendChild(car);
+      } else {
+        const car = document.createElement("img");
+        car.src = "./img/coche.jpg";
+        car.className = "imgCoche";
+        plazaActual.appendChild(car);
+      }
+    });
+});
+
 ///// ------ FUNCION PARA LIMPIAR VISUALMENTE EL TABLERO NO AFECTA A LA BDO------
 
 const limpieza = () => {
@@ -31,6 +74,7 @@ const todoDesocupado = () => {
       id: contador,
       name: "plaza" + contador,
       ocupada: false,
+      matricula: "",
     };
     const formData = new FormData();
     formData.append("json", JSON.stringify(Edit));
@@ -140,6 +184,7 @@ const vaciarPlaza = (event) => {
       id: idCustom,
       name: "plaza" + idCustom,
       ocupada: false,
+      matricula: "",
     };
 
     const formData = new FormData();
@@ -207,6 +252,7 @@ const desocuparPlazasPares = () => {
         id: contador,
         name: "plaza" + contador,
         ocupada: false,
+        matricula: "",
       };
       const formData = new FormData();
       formData.append("json", JSON.stringify(Edit));
@@ -238,6 +284,7 @@ const plazasParesAleatorias = async () => {
   desocuparPlazasPares();
 
   randomId.map((id) => {
+    plazasPares();
     const plazaActual = document.getElementById("plaza" + id);
     if (id % 2 == 0) {
       const Edit = {
@@ -258,9 +305,9 @@ const plazasParesAleatorias = async () => {
         .then((res) => res.json())
         .then((data) => {
           console.log("ocupar", data);
-          plazasPares();
         });
     }
+    plazasPares();
   });
 };
 
@@ -275,6 +322,7 @@ const desocuparPlazasImpares = () => {
         id: contador,
         name: "plaza" + contador,
         ocupada: false,
+        matricula: "",
       };
       const formData = new FormData();
       formData.append("json", JSON.stringify(Edit));
@@ -306,6 +354,7 @@ const plazasImparesAleatorias = async () => {
   desocuparPlazasImpares();
 
   randomId.map((id) => {
+    plazasImpares();
     const plazaActual = document.getElementById("plaza" + id);
     if (id % 2 !== 0) {
       const Edit = {
@@ -326,8 +375,9 @@ const plazasImparesAleatorias = async () => {
         .then((res) => res.json())
         .then((data) => {
           console.log("ocupar", data);
-          plazasImpares();
         });
     }
+    plazasImpares();
   });
+  plazasImpares();
 };

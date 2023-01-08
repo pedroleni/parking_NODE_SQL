@@ -49,7 +49,9 @@ const updateById = async (req, res) => {
   const { id } = req.params;
   let plaza = req.body;
   connectDb.query(
-    "UPDATE parking SET ocupada=" + plaza.ocupada + ` WHERE id='` + id + `'`,
+    `UPDATE parking SET ocupada=${plaza.ocupada} , matricula="${
+      plaza.matricula != undefined ? plaza.matricula : ""
+    }" WHERE id="${id}"`,
     (error, results, fields) => {
       if (error) {
         throw error;
