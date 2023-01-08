@@ -27,6 +27,7 @@ formulario.addEventListener("submit", function (event) {
   })
     .then((res) => res.json())
     .then((data) => {
+      template();
       alert("Incluido con exito los datos introducidos");
       console.log("modificado por formulario", data);
       if (plazaActual.hasChildNodes()) {
@@ -53,6 +54,7 @@ const limpieza = () => {
   fetch("http://localhost:8000/api/v1/parking/plazas")
     .then((res) => res.json())
     .then((data) => {
+      template();
       data.map((plaza) => {
         const plazaActual = document.getElementById("plaza" + plaza.id);
         if (plazaActual.hasChildNodes()) {
@@ -95,6 +97,7 @@ const todoDesocupado = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        template();
         console.log("desocupar", data);
         if (plazaActual.hasChildNodes()) {
           plazaActual.innerHTML = "";
@@ -220,6 +223,7 @@ const vaciarPlaza = (event) => {
     })
       .then((res) => res.json())
       .then((data) => {
+        template();
         console.log("desocupar", data);
         if (padre.hasChildNodes()) {
           padre.innerHTML = "";
@@ -249,6 +253,7 @@ const ocuparPlaza = (event) => {
   })
     .then((res) => res.json())
     .then((data) => {
+      template();
       console.log("ocupar", data);
       if (
         !event.target.hasChildNodes() &&
@@ -289,6 +294,7 @@ const desocuparPlazasPares = () => {
       })
         .then((res) => res.json())
         .then((data) => {
+          template();
           console.log("desocupar", data);
           if (plazaActual.hasChildNodes()) {
             plazaActual.innerHTML = "";
@@ -407,3 +413,66 @@ const plazasImparesAleatorias = async () => {
   });
   plazasImpares();
 };
+
+/// ---------------------------------------------------------------------------------------------
+///---------------------------------------TABLE-------------------------------------------------
+/// ---------------------------------------------------------------------------------------------
+
+const thbody = () => {
+  const tbbody = document.querySelector(".tbody");
+  fetch("http://localhost:8000/api/v1/parking/plazas")
+    .then((res) => res.json())
+    .then((data) => {
+      const desc = "desconocido";
+      data.map((plaza) => {
+        console.log("plaza.marca", plaza.marca.length);
+        if (plaza.ocupada == 1) {
+          tbbody.innerHTML += `
+        <tr>
+            <td>
+                ${plaza.id}
+                
+            </td>
+            <td>
+                ${plaza.marca == "" ? desc : plaza.marca}
+                
+            </td>
+            <td>
+                ${plaza.modelo == "" ? desc : plaza.modelo}
+                
+            </td>
+            <td>
+                ${plaza.matricula == "" ? desc : plaza.matricula}
+                
+            </td>
+
+        </tr>
+
+        `;
+        }
+      });
+    });
+};
+
+const template = () => {
+  const table = document.querySelector(".container_table");
+  table.innerHTML = `
+           <table>
+                <thead>
+                    <tr>
+                        <th>Plaza ocupada</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Matricula</th>
+                    </tr>
+                </thead>
+
+                <tbody class="tbody">
+                    
+                </tbody>
+            </table>
+
+    `;
+  thbody();
+};
+template();
