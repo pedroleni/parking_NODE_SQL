@@ -334,6 +334,7 @@ const plazasParesAleatorias = async () => {
       })
         .then((res) => res.json())
         .then((data) => {
+          template();
           console.log("ocupar", data);
         });
     }
@@ -367,6 +368,7 @@ const desocuparPlazasImpares = () => {
       })
         .then((res) => res.json())
         .then((data) => {
+          template();
           console.log("desocupar", data);
           if (plazaActual.hasChildNodes()) {
             plazaActual.innerHTML = "";
