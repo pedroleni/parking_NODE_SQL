@@ -13,6 +13,8 @@ formulario.addEventListener("submit", function (event) {
     name: "plaza" + idPlaza,
     matricula: matricula2,
     ocupada: true,
+    marca: marca,
+    modelo: modelo,
   };
   const formData = new FormData();
   formData.append("json", JSON.stringify(Edit));
@@ -75,6 +77,8 @@ const todoDesocupado = () => {
       name: "plaza" + contador,
       ocupada: false,
       matricula: "",
+      marca: "",
+      modelo: "",
     };
     const formData = new FormData();
     formData.append("json", JSON.stringify(Edit));
@@ -185,6 +189,8 @@ const vaciarPlaza = (event) => {
       name: "plaza" + idCustom,
       ocupada: false,
       matricula: "",
+      marca: "",
+      modelo: "",
     };
 
     const formData = new FormData();
@@ -253,6 +259,8 @@ const desocuparPlazasPares = () => {
         name: "plaza" + contador,
         ocupada: false,
         matricula: "",
+        marca: "",
+        modelo: "",
       };
       const formData = new FormData();
       formData.append("json", JSON.stringify(Edit));
@@ -323,6 +331,8 @@ const desocuparPlazasImpares = () => {
         name: "plaza" + contador,
         ocupada: false,
         matricula: "",
+        marca: "",
+        modelo: "",
       };
       const formData = new FormData();
       formData.append("json", JSON.stringify(Edit));
