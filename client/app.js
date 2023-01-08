@@ -45,6 +45,7 @@ formulario.addEventListener("submit", function (event) {
         car.className = "imgCoche";
         plazaActual.appendChild(car);
       }
+      plazasOcupadasTotales();
     });
 });
 
