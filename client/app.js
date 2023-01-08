@@ -225,10 +225,10 @@ const vaciarPlaza = (event) => {
       .then((res) => res.json())
       .then((data) => {
         template();
-        plazasOcupadasTotales();
         console.log("desocupar", data);
         if (padre.hasChildNodes()) {
           padre.innerHTML = "";
+          plazasOcupadasTotales();
         }
       });
   }
