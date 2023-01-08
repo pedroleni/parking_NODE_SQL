@@ -51,7 +51,9 @@ const updateById = async (req, res) => {
   connectDb.query(
     `UPDATE parking SET ocupada=${plaza.ocupada} , matricula="${
       plaza.matricula != undefined ? plaza.matricula : ""
-    }" WHERE id="${id}"`,
+    }" , marca="${plaza.marca != undefined ? plaza.marca : ""}" , modelo="${
+      plaza.modelo != undefined ? plaza.modelo : ""
+    }"  WHERE id="${id}"`,
     (error, results, fields) => {
       if (error) {
         throw error;
