@@ -228,8 +228,8 @@ const vaciarPlaza = (event) => {
         console.log("desocupar", data);
         if (padre.hasChildNodes()) {
           padre.innerHTML = "";
-          plazasOcupadasTotales();
         }
+        plazasOcupadasTotales();
       });
   }
 };
