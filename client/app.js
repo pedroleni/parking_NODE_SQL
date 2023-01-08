@@ -112,6 +112,7 @@ const todoDesocupado = () => {
           plazaActual.appendChild(car);
         }
       });
+    template();
   }
 };
 
@@ -224,6 +225,7 @@ const vaciarPlaza = (event) => {
       .then((res) => res.json())
       .then((data) => {
         template();
+        plazasOcupadasTotales();
         console.log("desocupar", data);
         if (padre.hasChildNodes()) {
           padre.innerHTML = "";
@@ -253,6 +255,7 @@ const ocuparPlaza = (event) => {
   })
     .then((res) => res.json())
     .then((data) => {
+      plazasOcupadasTotales();
       template();
       console.log("ocupar", data);
       if (
@@ -264,6 +267,7 @@ const ocuparPlaza = (event) => {
         car.className = "imgCoche";
         event.target.appendChild(car);
       }
+      template();
     });
 };
 
@@ -305,7 +309,7 @@ const desocuparPlazasPares = () => {
 };
 
 //// ------------- RANDOM PLAZAS PARES -----------------------------------
-const plazasParesAleatorias = async () => {
+const plazasParesAleatorias = () => {
   let randomId = Array.from({ length: 15 }, () =>
     Math.floor(Math.random() * 20)
   );
@@ -408,6 +412,7 @@ const plazasImparesAleatorias = async () => {
       })
         .then((res) => res.json())
         .then((data) => {
+          template();
           console.log("ocupar", data);
         });
     }
@@ -459,13 +464,83 @@ const thbody = () => {
 const template = () => {
   const table = document.querySelector(".container_table");
   table.innerHTML = `
+          <div class="text_info">
+
+          <h1>INSTRUCCIONES DE USO</h1>
+        <p>Hay diferentes botones en la aplicaciones:</p>
+        <ul>
+          <li>
+            <p>
+              <b>VER PLAZAS LIBRES:</b> al pulsarlo se puede ver en el tablero todas
+              las plazas libres con el simbolo en rojo de free.
+            </p>
+          </li>
+          <li>
+            <p>
+            <b>VER PLAZAS OCUPADAS TOTALES:</b> al pulsarlo se puede ver en el
+              tablero todas las plazas ocupadas con el simbolo del coche negro.
+            </p>
+          </li>
+          <li>
+            <p>
+            <b>VER PLAZAS OCUPADAS PARES:</b> al pulsarlo se puede ver en el tablero
+              todas las plazas ocupadas pares con el simbolo del coche.
+            </p>
+          </li>
+          <li>
+            <p>
+            <b>VER PLAZAS OCUPADAS IMPARES:</b> al pulsarlo se puede ver en el
+              tablero todas las plazas ocupadas impares con el simbolo del
+              coche.
+            </p>
+          </li>
+          <li>
+            <p>
+            <b>OCUPAR P. PARES ALEATORIAS:</b> se ocupan plazas pares de forma
+              aleatoria. SOLO SE MUESTRAN LAS PARES.
+            </p>
+          </li>
+          <li>
+            <p>
+            <b>OCUPAR P. IMPARES ALEATORIAS:</b> se ocupan plazas impares de forma
+              aleatoria. SOLO SE MUESTRAN LAS IMPARES.
+            </p>
+          </li>
+          <li>
+            <p><b>LIMPIEZA DEL TABLERO:</b> no se mostrara ninguna imagen.</p>
+          </li>
+          <li>
+            <p>
+            <b>DESOCUPAR TODAS LAS PLAZAS:</b> se desocupan las plazas de la BDO y
+              del table.
+            </p>
+          </li>
+          <li>
+          <b>ACCIONES CON EL RATÓN:</b>
+            <ul>
+              <li>
+                <p><b>CLICK:</b> desocupa la plaza.</p>
+              </li>
+              <li>
+                <p><b>DOBLE CLICK:</b> ocupa la plaza.</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p>
+          Para introducir los datos del modelo, marca o matricula puede hacerlo
+          desde el formulario. Este formulario tambien le servirá para poder
+          ocupar una plaza que no estaba ocupada
+        </p>
+          
+          </div>
            <table>
                 <thead>
-                    <tr>
-                        <th>Plaza ocupada</th>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th>Matricula</th>
+                    <tr class="title_column">
+                        <th class="title_column">Plaza ocupada</th>
+                        <th class="title_column">Marca</th>
+                        <th class="title_column">Modelo</th>
+                        <th class="title_column">Matricula</th>
                     </tr>
                 </thead>
 
