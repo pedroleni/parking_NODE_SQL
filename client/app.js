@@ -27,19 +27,20 @@ formulario.addEventListener("submit", function (event) {
   })
     .then((res) => res.json())
     .then((data) => {
-      alert(
-        "Incluido con exito los datos introducidos, si pasa el raton encima de la imafen podra consultarlos"
-      );
+      alert("Incluido con exito los datos introducidos");
       console.log("modificado por formulario", data);
       if (plazaActual.hasChildNodes()) {
         plazaActual.innerHTML = "";
         const car = document.createElement("img");
         car.src = "./img/coche.jpg";
+
+        car.setAttribute("alt", `${marca} ${modelo} ${matricula2}`);
         car.className = "imgCoche";
         plazaActual.appendChild(car);
       } else {
         const car = document.createElement("img");
         car.src = "./img/coche.jpg";
+        car.setAttribute("alt", `${marca} ${modelo} ${matricula2}`);
         car.className = "imgCoche";
         plazaActual.appendChild(car);
       }
@@ -138,6 +139,10 @@ const plazasOcupadasTotales = () => {
         const plazaActual = document.getElementById("plaza" + plaza.id);
         const car = document.createElement("img");
         car.src = "./img/coche.jpg";
+        car.setAttribute(
+          "alt",
+          `${plaza.marca} ${plaza.modelo} ${plaza.matricula}`
+        );
         car.className = "imgCoche";
         if (plaza.ocupada == 1) plazaActual.appendChild(car);
       });
@@ -155,6 +160,10 @@ const plazasPares = () => {
           const plazaActual = document.getElementById("plaza" + plaza.id);
           const car = document.createElement("img");
           car.src = "./img/coche.jpg";
+          car.setAttribute(
+            "alt",
+            `${plaza.marca} ${plaza.modelo} ${plaza.matricula}`
+          );
           car.className = "imgCoche";
           plazaActual.appendChild(car);
         }
@@ -173,6 +182,10 @@ const plazasImpares = () => {
           const plazaActual = document.getElementById("plaza" + plaza.id);
           const car = document.createElement("img");
           car.src = "./img/coche.jpg";
+          car.setAttribute(
+            "alt",
+            `${plaza.marca} ${plaza.modelo} ${plaza.matricula}`
+          );
           car.className = "imgCoche";
           plazaActual.appendChild(car);
         }
