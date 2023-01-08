@@ -308,7 +308,7 @@ const desocuparPlazasPares = () => {
         .then((data) => {
           template();
           console.log("desocupar", data);
-          if (plazaActual.hasChildNodes()) {
+          if (plazaActual?.hasChildNodes()) {
             plazaActual.innerHTML = "";
           }
         });
@@ -382,7 +382,7 @@ const desocuparPlazasImpares = () => {
         .then((data) => {
           template();
           console.log("desocupar", data);
-          if (plazaActual.hasChildNodes()) {
+          if (plazaActual?.hasChildNodes()) {
             plazaActual.innerHTML = "";
           }
         });

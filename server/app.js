@@ -4,7 +4,7 @@ const cors = require("cors");
 const connectDb = require("./src/helpers/db");
 const ParkingRoutes = require("./src/API/parking/parking.routes");
 
-const PORT = process.env.PORT || 6943;
+const PORT = process.env.PORT || 8000;
 const app = express();
 
 app.use(
