@@ -1,3 +1,5 @@
+///// ---------- MANEJO DEL FORMULARIO----------------------------------------
+
 const formulario = document.getElementById("formulario");
 console.log(formulario);
 formulario.addEventListener("submit", function (event) {
@@ -45,6 +47,11 @@ formulario.addEventListener("submit", function (event) {
         car.className = "imgCoche";
         plazaActual.appendChild(car);
       }
+      // Borramos los valores del imput si todo a ido bien
+      document.getElementById("marca").value = "";
+      document.getElementById("modelo").value = "";
+      document.getElementById("matricula").value = "";
+      // reseteamos la tabla con los valores actuales
       plazasOcupadasTotales();
     });
 });
