@@ -159,7 +159,7 @@ const plazasOcupadasTotales = () => {
     });
 };
 
-/// -------------------------MUESTRA PLAZAS PARES -----------------------------------------
+/// -------------------------MUESTRA PLAZAS PARES -------------------------------
 const plazasPares = () => {
   limpieza();
   fetch("http://localhost:8000/api/v1/parking/plazas")
