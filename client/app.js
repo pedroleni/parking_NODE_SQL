@@ -31,7 +31,6 @@ formulario.addEventListener("submit", function (event) {
     .then((data) => {
       template();
       alert("Incluido con exito los datos introducidos");
-      console.log("modificado por formulario", data);
       if (plazaActual.hasChildNodes()) {
         plazaActual.innerHTML = "";
         const car = document.createElement("img");
