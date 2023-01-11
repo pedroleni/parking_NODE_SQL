@@ -3,7 +3,7 @@ const { setError } = require("../../helpers/utils");
 
 let plazas;
 
-// ----Hacemos una consulta de toda la BDO -----------
+// ----Hacemos una consulta de toda la BDO ---------
 const init = () => {
   connectDb.query("SELECT * FROM parking", (error, results, fields) => {
     if (error) {
