@@ -123,7 +123,7 @@ const todoDesocupado = () => {
   }
 };
 
-///-----------MUESTRA LAS PLAZAS LIBRES ---------------------------
+///-----------MUESTRA LAS PLAZAS LIBRES -----------------------
 
 const plazaLibres = () => {
   limpieza();
@@ -210,7 +210,7 @@ const vaciarPlaza = (event) => {
   let padre = event.target.parentNode;
   if (padre.id !== "" && padre.id !== "container_parking") {
     const idCustom = extractId(padre.id);
-    console.log(padre.id);
+    
     const Edit = {
       id: idCustom,
       name: "plaza" + idCustom,
