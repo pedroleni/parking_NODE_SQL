@@ -48,7 +48,7 @@ app.use("*", (_req, _res, next) => {
 // Enable Language
 app.disable("x-powered-by");
 
-// Open Listener Server
+
 app.listen(PORT, () => {
   console.log("Server 📚 is running in http://localhost:" + PORT);
 });
