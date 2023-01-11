@@ -7,7 +7,6 @@ formulario.addEventListener("submit", function (event) {
   const marca = document.getElementById("marca").value;
   const modelo = document.getElementById("modelo").value;
   const matricula2 = document.getElementById("matricula").value.toString();
-  console.log(matricula2, "matricula");
   const idPlaza = document.getElementById("ocupadas").value;
   const plazaActual = document.getElementById("plaza" + idPlaza);
   const Edit = {
