@@ -1,4 +1,4 @@
-///// ---------- MANEJO DEL FORMULARIO----------------------------------------
+///// ---------- MANEJO DEL FORMULARIO--------------------------------------
 
 const formulario = document.getElementById("formulario");
 console.log(formulario);
