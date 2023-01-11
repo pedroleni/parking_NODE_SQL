@@ -45,7 +45,7 @@ app.use("*", (_req, _res, next) => {
   return next(error);
 });
 
-// Enable Language
+// Enable Languagee
 app.disable("x-powered-by");
 
 
