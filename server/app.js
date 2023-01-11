@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 
 app.use("/api/v1/parking", ParkingRoutes);
 
-// Error handler
+
 app.use((error, _req, res, _next) => {
   return res
     .status(error.code || 500)
