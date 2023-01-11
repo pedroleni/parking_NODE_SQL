@@ -1,7 +1,7 @@
 ///// ---------- MANEJO DEL FORMULARIO------------------------------------
 
 const formulario = document.getElementById("formulario");
-console.log(formulario);
+
 formulario.addEventListener("submit", function (event) {
   event.preventDefault(); // Evita que el formulario se envíe de manera tradicional
   const marca = document.getElementById("marca").value;
